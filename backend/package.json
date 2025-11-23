@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "cd ../frontend && npm install && npm run build && cd ../backend && npm install",
     "start": "nodemon --experimental-json-modules src/index.js"
   },
   "keywords": [
