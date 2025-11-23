@@ -23,7 +23,7 @@ function EditCompo() {
 
     setLoading(true);
     axios
-      .get(`/api/v1/users/c/${username}`, {
+      .get(`https://revio-host.onrender.com/api/v1/users/c/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })
@@ -48,7 +48,7 @@ function EditCompo() {
 
       try {
         setUploading(true);
-        const res = await axios.patch("/api/v1/users/avatar", formData, {
+        const res = await axios.patch("https://revio-host.onrender.com/api/v1/users/avatar", formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
@@ -89,7 +89,7 @@ function EditCompo() {
 
       try {
         setUploading(true);
-        const res = await axios.patch("/api/v1/users/cover-image", formData, {
+        const res = await axios.patch("https://revio-host.onrender.com/api/v1/users/cover-image", formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",

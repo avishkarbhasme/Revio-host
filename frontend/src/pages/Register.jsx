@@ -67,7 +67,7 @@ function Signup() {
       if (coverImage) {
         formData.append("coverImage", coverImage);
       }
-      await axios.post("/api/v1/users/register", formData, {
+      await axios.post("https://revio-host.onrender.com/api/v1/users/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

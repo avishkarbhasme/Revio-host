@@ -31,7 +31,7 @@ function UpdatePassword() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "/api/v1/users/change-password",
+        "https://revio-host.onrender.com/api/v1/users/change-password",
         {
           oldPassword: formData.oldPassword,
           newPassword: formData.newPassword,

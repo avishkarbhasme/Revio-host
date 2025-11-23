@@ -11,7 +11,7 @@ const MyContent = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await axios.get("/api/v1/dashboard/videos", { withCredentials: true });
+        const res = await axios.get("https://revio-host.onrender.com/api/v1/dashboard/videos", { withCredentials: true });
         setVideos(res.data.data || []);
       } catch (err) {
         setError(err.response?.data?.message || "Failed to fetch videos");

@@ -12,7 +12,7 @@ const Playlist = ({ userId }) => {
 
     const fetchUserPlaylists = async () => {
       try {
-        const res = await axios.get(`/api/v1/playlist/u/${userId}`, {
+        const res = await axios.get(`https://revio-host.onrender.com/api/v1/playlist/u/${userId}`, {
           withCredentials: true,
         });
         setPlaylists(res.data.data || []);

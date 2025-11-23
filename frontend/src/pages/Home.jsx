@@ -15,7 +15,7 @@ function Home() {
   useEffect(() => {
     const verifyAuth = async () => {
       try {
-        await axios.get("/api/v1/users/current-user", { withCredentials: true });
+        await axios.get("https://revio-host.onrender.com/api/v1/users/current-user", { withCredentials: true });
       } catch {
         navigate("/", { replace: true }); // Redirect if not authenticated
       }

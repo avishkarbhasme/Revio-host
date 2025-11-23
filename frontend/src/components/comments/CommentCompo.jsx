@@ -24,7 +24,7 @@ function CommentCompo() {
     setLoading(true);
 
     axios
-      .get(`/api/v1/comments/c/${videoId}`, {
+      .get(`https://revio-host.onrender.com/api/v1/comments/c/${videoId}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })
@@ -50,7 +50,7 @@ function CommentCompo() {
     setPosting(true);
     axios
       .post(
-        `/api/v1/comments/c/${videoId}`,
+        `https://revio-host.onrender.com/api/v1/comments/c/${videoId}`,
         { content: newComment },
         { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
       )
@@ -71,7 +71,7 @@ function CommentCompo() {
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
 
     axios
-      .delete(`/api/v1/comments/c/${commentId}`, {
+      .delete(`https://revio-host.onrender.com/api/v1/comments/c/${commentId}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })
@@ -94,7 +94,7 @@ function CommentCompo() {
 
     axios
       .patch(
-        `/api/v1/comments/c/${commentId}`,
+        `https://revio-host.onrender.com/api/v1/comments/c/${commentId}`,
         { content: editingContent },
         { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
       )
@@ -131,7 +131,7 @@ function CommentCompo() {
 
     try {
       const res = await axios.post(
-        `/api/v1/likes/toggle/d/${commentId}`,
+        `https://revio-host.onrender.com/api/v1/likes/toggle/d/${commentId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
       );

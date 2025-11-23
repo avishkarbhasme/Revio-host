@@ -12,7 +12,7 @@ const LikedVideos = () => {
   const fetchLikedVideos = async (filterOption = "latest") => {
     setLoading(true);
     try {
-      const res = await axios.get(`/api/v1/likes/videos?filter=${filterOption}`, {
+      const res = await axios.get(`https://revio-host.onrender.com/api/v1/likes/videos?filter=${filterOption}`, {
         withCredentials: true,
       });
       setVideos(res.data.data || []);

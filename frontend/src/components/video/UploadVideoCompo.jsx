@@ -45,7 +45,7 @@ function UploadVideoCompo({ onClose, onUploaded }) {
       formData.append("thumbnail", thumbnailFile);
 
       const res = await axios.post(
-        "/api/v1/videos/upload",
+        "https://revio-host.onrender.com/api/v1/videos/upload",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

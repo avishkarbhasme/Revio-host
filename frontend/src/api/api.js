@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const fetchedlogin = async () => {
-  const res = await axios.get(`/api/v1/login`);
+  const res = await axios.get(`https://revio-host.onrender.com/api/v1/login`);
   return res.data;
 };
 

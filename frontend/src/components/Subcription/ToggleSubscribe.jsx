@@ -12,7 +12,7 @@ const ToggleSubscribe = () => {
 
     const fetchStatus = async () => {
       try {
-        const response = await axios.get(`api/v1/c/${channelId}`,{withCredentials:true});
+        const response = await axios.get(`https://revio-host.onrender.com/api/v1/c/${channelId}`,{withCredentials:true});
         setSubscribed(response.data.subscribed);
       } catch (error) {
         console.error('Error fetching subscription status', error);
@@ -28,7 +28,7 @@ const ToggleSubscribe = () => {
     if (!channelId) return;
     setLoading(true);
     try {
-      const response = await axios.post(`/api/v1/c/${channelId}`,{withCredentials:true});
+      const response = await axios.post(`https://revio-host.onrender.com/api/v1/c/${channelId}`,{withCredentials:true});
       setSubscribed(response.data.subscribed);
     } catch (error) {
       console.error('Error toggling subscription', error);

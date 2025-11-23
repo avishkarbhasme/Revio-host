@@ -15,7 +15,7 @@ const UserTweets = ({ userId }) => {
   useEffect(() => {
     const fetchTweets = async () => {
       try {
-        const res = await axios.get(`/api/v1/tweets/user/${userId}`, { withCredentials: true });
+        const res = await axios.get(`https://revio-host.onrender.com/api/v1/tweets/user/${userId}`, { withCredentials: true });
         setTweets(res.data.data || []);
       } catch (err) {
         setError(err.response?.data?.message || err.message || "Failed to fetch tweets");
@@ -30,7 +30,7 @@ const UserTweets = ({ userId }) => {
   const handleCreateTweet = async () => {
     if (!newTweet.trim()) return;
     try {
-      const res = await axios.post('/api/v1/tweets/create', { content: newTweet }, { withCredentials: true });
+      const res = await axios.post('https://revio-host.onrender.com/api/v1/tweets/create', { content: newTweet }, { withCredentials: true });
       setTweets([res.data.data, ...tweets]);
       setNewTweet('');
     } catch (err) {
@@ -42,7 +42,7 @@ const UserTweets = ({ userId }) => {
   const handleUpdateTweet = async (tweetId) => {
     if (!editingContent.trim()) return;
     try {
-      const res = await axios.patch(`/api/v1/tweets/${tweetId}`, { content: editingContent }, { withCredentials: true });
+      const res = await axios.patch(`https://revio-host.onrender.com/api/v1/tweets/${tweetId}`, { content: editingContent }, { withCredentials: true });
       setTweets(tweets.map(t => t._id === tweetId ? res.data.data : t));
       setEditingTweetId(null);
       setEditingContent('');
@@ -55,7 +55,7 @@ const UserTweets = ({ userId }) => {
   const handleDeleteTweet = async (tweetId) => {
     if (!window.confirm("Are you sure you want to delete this tweet?")) return;
     try {
-      await axios.delete(`/api/v1/tweets/${tweetId}`, { withCredentials: true });
+      await axios.delete(`https://revio-host.onrender.com/api/v1/tweets/${tweetId}`, { withCredentials: true });
       setTweets(tweets.filter(t => t._id !== tweetId));
     } catch (err) {
       alert(err.response?.data?.message || err.message || "Failed to delete tweet");
@@ -66,7 +66,7 @@ const UserTweets = ({ userId }) => {
 const handleToggleLike = async (tweetId) => {
   try {
     // Make sure the URL matches your backend route
-    const res = await axios.post(`/api/v1/likes/toggle/t/${tweetId}`, {}, {
+    const res = await axios.post(`https://revio-host.onrender.com/api/v1/likes/toggle/t/${tweetId}`, {}, {
       withCredentials: true,
     });
 

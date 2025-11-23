@@ -23,7 +23,7 @@ const UserPlaylists = ({ userId }) => {
         }
 
         // ✅ Fetch playlists
-        const playlistResponse = await axios.get(`/api/v1/playlist/u/${userId}`, {
+        const playlistResponse = await axios.get(`https://revio-host.onrender.com/api/v1/playlist/u/${userId}`, {
           withCredentials: true,
         });
         console.log("Playlists response:", playlistResponse.data);
@@ -33,7 +33,7 @@ const UserPlaylists = ({ userId }) => {
         setPlaylists(playlistData);
 
         // ✅ Fetch videos (for adding to playlists)
-        const videoResponse = await axios.get("/api/v1/dashboard/videos", {
+        const videoResponse = await axios.get("https://revio-host.onrender.com/api/v1/dashboard/videos", {
           withCredentials: true,
         });
         console.log("Videos response:", videoResponse.data);
@@ -61,7 +61,7 @@ const UserPlaylists = ({ userId }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "/api/v1/playlist/create",
+        "https://revio-host.onrender.com/api/v1/playlist/create",
         {
           name: newPlaylist.name,
           description: newPlaylist.description,
@@ -83,7 +83,7 @@ const UserPlaylists = ({ userId }) => {
         return;
       }
       const response = await axios.patch(
-        `/api/v1/playlist/${playlistId}`,
+        `https://revio-host.onrender.com/api/v1/playlist/${playlistId}`,
         {
           name: editingPlaylist.name,
           description: editingPlaylist.description,
@@ -104,7 +104,7 @@ const UserPlaylists = ({ userId }) => {
   // ✅ Delete playlist
   const handleDeletePlaylist = async (playlistId) => {
     try {
-      await axios.delete(`/api/v1/playlist/${playlistId}`, {
+      await axios.delete(`https://revio-host.onrender.com/api/v1/playlist/${playlistId}`, {
         withCredentials: true,
       });
       setPlaylists(playlists.filter((p) => p._id !== playlistId));
@@ -121,7 +121,7 @@ const UserPlaylists = ({ userId }) => {
         return;
       }
       setAddLoading(true);
-      await axios.patch(`/api/v1/playlist/add/${videoId}/${playlistId}`, {}, { withCredentials: true });
+      await axios.patch(`https://revio-host.onrender.com/api/v1/playlist/add/${videoId}/${playlistId}`, {}, { withCredentials: true });
       setPlaylists(
         playlists.map((p) =>
           p._id === playlistId
@@ -144,7 +144,7 @@ const UserPlaylists = ({ userId }) => {
         setError("Please select a video and playlist");
         return;
       }
-      await axios.patch(`/api/v1/playlist/remove/${videoId}/${playlistId}`, {}, { withCredentials: true });
+      await axios.patch(`https://revio-host.onrender.com/api/v1/playlist/remove/${videoId}/${playlistId}`, {}, { withCredentials: true });
       setPlaylists(
         playlists.map((p) =>
           p._id === playlistId

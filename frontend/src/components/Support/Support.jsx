@@ -24,7 +24,7 @@ function Support() {
     setSuccess("");
 
     try {
-      const res = await axios.post("/api/v1/support", {
+      const res = await axios.post("https://revio-host.onrender.com/api/v1/support", {
         name,
         email,
         subject,

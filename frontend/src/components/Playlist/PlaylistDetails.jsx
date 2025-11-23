@@ -11,7 +11,7 @@ const PlaylistDetails = () => {
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        const res = await axios.get(`/api/v1/playlist/${playlistId}`, {
+        const res = await axios.get(`https://revio-host.onrender.com/api/v1/playlist/${playlistId}`, {
           withCredentials: true,
         });
         setPlaylist(res.data.data);

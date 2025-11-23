@@ -10,7 +10,7 @@ function ProtectedRoute({ children }) {
     const checkAuth = async () => {
       try {
         // Axios call with credentials to get current user info
-        await axios.get("http://localhost:8000/api/v1/users/current-user", { withCredentials: true });
+        await axios.get("https://revio-host.onrender.com/api/v1/users/current-user", { withCredentials: true });
         setIsAuthenticated(true);
       } catch {
         setIsAuthenticated(false);

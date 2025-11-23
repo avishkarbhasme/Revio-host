@@ -16,7 +16,7 @@ function VideoGrid() {
   const fetchVideos = async (filterOption, pageNumber = 1) => {
     setLoading(true);
     try {
-      const res = await axios.get("/api/v1/videos/getAllVideos", {
+      const res = await axios.get("https://revio-host.onrender.com/api/v1/videos/getAllVideos", {
         params: { page: pageNumber, limit, filter: filterOption },
       });
       setVideos(res.data.data.docs || []);

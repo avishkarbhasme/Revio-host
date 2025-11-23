@@ -27,7 +27,7 @@ function ForgotPassword() {
     }
 
     try {
-      await axios.post("/api/v1/users/forgot-password", { username, email, newPassword });
+      await axios.post("https://revio-host.onrender.com/api/v1/users/forgot-password", { username, email, newPassword });
       setSuccess("Password reset successful. You can now login.");
       setUsername("");
       setEmail("");

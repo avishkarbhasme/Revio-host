@@ -18,7 +18,7 @@ const UserSubscribed = ({ subscriberId }) => {
           return;
         }
 
-        const response = await axios.get(`/api/v1/subscriptions/u/${subscriberId}`, {
+        const response = await axios.get(`https://revio-host.onrender.com/api/v1/subscriptions/u/${subscriberId}`, {
       
           withCredentials: true,
         });

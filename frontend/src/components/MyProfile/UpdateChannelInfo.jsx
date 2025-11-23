@@ -9,7 +9,7 @@ function UpdateChannelInfo() {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const res = await axios.get("/api/v1/healthcheck/check");
+        const res = await axios.get("https://revio-host.onrender.com/api/v1/healthcheck/check");
         setStatus(res.data?.message || "API is healthy ✅");
       } catch (err) {
         setError("Failed to connect to backend ❌");

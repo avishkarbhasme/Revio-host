@@ -18,8 +18,8 @@ function Dashboard() {
   useEffect(() => {
     async function fetchStatsAndVideos() {
       const [statsRes, videosRes] = await Promise.all([
-        axios.get("/api/v1/dashboard/stats", { withCredentials: true }),
-        axios.get("/api/v1/dashboard/videos", { withCredentials: true }),
+        axios.get("https://revio-host.onrender.com/api/v1/dashboard/stats", { withCredentials: true }),
+        axios.get("https://revio-host.onrender.com/api/v1/dashboard/videos", { withCredentials: true }),
       ]);
       setStats(statsRes.data.data);
       setVideos(videosRes.data.data);
@@ -30,7 +30,7 @@ function Dashboard() {
   const handleTogglePublish = async (videoId, currentStatus) => {
     try {
       await axios.patch(
-        `/api/v1/videos/${videoId}/toggle-publish`,
+        `https://revio-host.onrender.com/api/v1/videos/${videoId}/toggle-publish`,
         { isPublished: !currentStatus },
         { withCredentials: true }
       );
@@ -48,7 +48,7 @@ function Dashboard() {
   const handleDeleteVideo = async (videoId) => {
     if (!window.confirm("Delete this video permanently?")) return;
     try {
-      await axios.delete(`/api/v1/videos/v/${videoId}`, {
+      await axios.delete(`https://revio-host.onrender.com/api/v1/videos/v/${videoId}`, {
         withCredentials: true,
       });
       setVideos(videos.filter((v) => v._id !== videoId));

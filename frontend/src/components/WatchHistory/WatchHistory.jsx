@@ -13,7 +13,7 @@ const WatchHistory = () => {
   const fetchWatchHistory = async (selectedFilter = "latest") => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/v1/users/watch-history?filter=${selectedFilter}`, {
+      const response = await axios.get(`https://revio-host.onrender.com/api/v1/users/watch-history?filter=${selectedFilter}`, {
         withCredentials: true,
       });
       setVideos(response.data.data || []);

@@ -16,7 +16,7 @@ function VideoMeta() {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const res = await axios.get(`/api/v1/videos/v/${videoId}`, {
+        const res = await axios.get(`https://revio-host.onrender.com/api/v1/videos/v/${videoId}`, {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,
         });
@@ -36,7 +36,7 @@ function VideoMeta() {
     setLiking(true);
     try {
       const res = await axios.post(
-        `/api/v1/likes/toggle/v/${video._id}`,
+        `https://revio-host.onrender.com/api/v1/likes/toggle/v/${video._id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
       );
@@ -58,7 +58,7 @@ function VideoMeta() {
     setSubscribing(true);
     try {
       const res = await axios.post(
-        `/api/v1/subscriptions/c/${video.owner._id}`,
+        `https://revio-host.onrender.com/api/v1/subscriptions/c/${video.owner._id}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

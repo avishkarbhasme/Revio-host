@@ -38,7 +38,7 @@ function UpdateInfo({ profile, setProfile }) {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.patch(
-        "/api/v1/users/update-account",
+        "https://revio-host.onrender.com/api/v1/users/update-account",
         payload,
         {
           headers: {

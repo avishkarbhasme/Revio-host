@@ -11,7 +11,7 @@ const UserVideos = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get('/api/v1/dashboard/videos', { withCredentials: true });
+        const response = await axios.get('https://revio-host.onrender.com/api/v1/dashboard/videos', { withCredentials: true });
         setVideos(response.data.data || []); // Safely access nested data, default to empty array
         setLoading(false);
       } catch (err) {

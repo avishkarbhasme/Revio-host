@@ -10,7 +10,7 @@ function VideoList() {
 
   useEffect(() => {
     axios
-      .get("/api/v1/videos/getAllVideos", { params: { page: 1, limit: 15 } })
+      .get("https://revio-host.onrender.com/api/v1/videos/getAllVideos", { params: { page: 1, limit: 15 } })
       .then((res) => setVideos(res.data.data.docs || []))
       .catch(() => setVideos([]))
       .finally(() => setLoading(false));

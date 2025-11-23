@@ -23,7 +23,7 @@ function ProfileCompo() {
 
     setLoading(true);
     axios
-      .get(`/api/v1/users/c/${username}`, {
+      .get(`https://revio-host.onrender.com/api/v1/users/c/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })
@@ -38,7 +38,7 @@ function ProfileCompo() {
     setSubscribing(true);
 
     axios
-      .get(`/api/v1/users/c/${username}?toggle=true`, {
+      .get(`https://revio-host.onrender.com/api/v1/users/c/${username}?toggle=true`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })

@@ -12,7 +12,7 @@ function VideoPlayer() {
 
   useEffect(() => {
     axios
-      .get(`/api/v1/videos/v/${videoId}`, { withCredentials: true })
+      .get(`https://revio-host.onrender.com/api/v1/videos/v/${videoId}`, { withCredentials: true })
       .then((res) => setVideo(res.data.data))
       .catch(() => setVideo(null))
       .finally(() => setLoading(false));

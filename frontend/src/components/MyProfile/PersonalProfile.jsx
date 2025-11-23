@@ -22,7 +22,7 @@ function PersonalProfile() {
 
     setLoading(true);
     axios
-      .get(`/api/v1/users/c/${username}`, {
+      .get(`https://revio-host.onrender.com/api/v1/users/c/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       })

@@ -41,7 +41,7 @@ function EditVideo({ video, onClose, onUpdate }) {
       if (thumbnailFile) formData.append("thumbnail", thumbnailFile);
 
       const res = await axios.patch(
-        `/api/v1/videos/v/${video._id}`,
+        `https://revio-host.onrender.com/api/v1/videos/v/${video._id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

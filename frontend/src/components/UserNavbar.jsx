@@ -32,7 +32,7 @@ function UserNavbar() {
   const fetchVideos = async (query) => {
     try {
       const res = await axios.get(
-        `/api/v1/videos/getAllVideos?query=${encodeURIComponent(query)}`,
+        `https://revio-host.onrender.com/api/v1/videos/getAllVideos?query=${encodeURIComponent(query)}`,
         { withCredentials: true }
       );
       const videoResults = res.data.data.docs || [];
@@ -44,7 +44,7 @@ function UserNavbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/api/v1/users/logout", {}, { withCredentials: true });
+      await axios.post("https://revio-host.onrender.com/api/v1/users/logout", {}, { withCredentials: true });
       navigate("/", { replace: true });
     } catch (err) {
       navigate("/", { replace: true });
@@ -54,7 +54,7 @@ function UserNavbar() {
   useEffect(() => {
     async function fetchUserDetails() {
       try {
-        const res = await axios.get("/api/v1/users/current-user", { withCredentials: true });
+        const res = await axios.get("https://revio-host.onrender.com/api/v1/users/current-user", { withCredentials: true });
         setAvatarUrl(res.data?.data?.avatar);
         setUsername(res.data?.data?.username);
       } catch {

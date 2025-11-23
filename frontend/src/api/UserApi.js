@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Base Axios instance
 const api = axios.create({
-  baseURL: "/api/users", // Change if your API prefix differs
+  baseURL: "https://revio-host.onrender.com/api/users", // Change if your API prefix differs
   withCredentials: true, // Include cookies if needed
 });
 

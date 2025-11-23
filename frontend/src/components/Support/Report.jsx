@@ -16,7 +16,7 @@ function Report() {
       return;
     }
     try {
-      const res = await axios.post("/api/v1/reports/create", { type, reason, description });
+      const res = await axios.post("https://revio-host.onrender.com/api/v1/reports/create", { type, reason, description });
       setSuccess(res.data.message);
       setError("");
       setType("video");
